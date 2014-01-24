@@ -1,0 +1,14 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>TrustPay Example</title>
+    </head>
+    <body>
+        <h1>TrustPay Example</h1>
+        <h2>Home View</h2>
+
+        {{ trustpay_payment_data }}<br><br>
+
+        {% include 'trustpay/helpers/form.html' with form=form submit_label='Pay with TrustPay' %}
+    </body>
+</html>

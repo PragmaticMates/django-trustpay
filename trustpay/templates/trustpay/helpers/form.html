@@ -1,4 +1,4 @@
-<form name="trustpay-form" action="{{ form.action_url }}" method="post" class="trustpay-form">
+<form name="trustpay-form" action="{{ form.action_url }}" method="post" class="trustpay-form" {% if rel %}rel="{{ rel }}"{% endif %}>
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="{{ submit_label }}" {% if submit_class %}class="{{ submit_class }}"{% endif %} />

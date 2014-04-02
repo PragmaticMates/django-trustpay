@@ -14,7 +14,7 @@ class TrustPayClient(object):
         self.PAYMENT_SERVICE_URL = settings.TRUSTPAY_PAYMENT_SERVICE_URL_TEST if is_test else settings.TRUSTPAY_PAYMENT_SERVICE_URL_LIVE
         self.CLIENT_REDIRECT_URL = settings.TRUSTPAY_CLIENT_REDIRECT_URL_TEST if is_test else settings.TRUSTPAY_CLIENT_REDIRECT_URL_LIVE
         self.AID = settings.TRUSTPAY_AID_TEST if is_test else settings.TRUSTPAY_AID_LIVE
-        self.SECRETE_KEY = settings.TRUSTPAY_SECRET_KEY_TEST if is_test else settings.TRUSTPAY_SECRET_KEY_LIVE
+        self.SECRET_KEY = settings.TRUSTPAY_SECRET_KEY_TEST if is_test else settings.TRUSTPAY_SECRET_KEY_LIVE
         self.ACTION_URL = settings.TRUSTPAY_CLIENT_REDIRECT_URL_TEST if is_test else settings.TRUSTPAY_CLIENT_REDIRECT_URL_LIVE
 
 
@@ -49,7 +49,7 @@ class TrustPayClient(object):
 
     def sign(self, message):
         try:
-            key = self.SECRETE_KEY
+            key = self.SECRET_KEY
 
             # HMAC-SHA-256 code (32 bytes) is generated using a key obtained from TrustPay
             code = hmac.new(key, message, hashlib.sha256)

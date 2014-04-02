@@ -44,6 +44,8 @@ class Notification(models.Model):
 
     def save(self, **kwargs):
         if self.is_test in EMPTY_VALUES:
+            # Notification requests from Production environment are sent from IP 81.89.63.16
+            # Notification requests from Test environment are sent from IP 81.89.63.19
             self.is_test = self.ip_address != '81.89.63.16'
 
         if self.is_signed in EMPTY_VALUES:
@@ -63,6 +65,6 @@ class Notification(models.Model):
     def trustpay_signature(self):
         tss = 'Y' if self.is_signed else 'N'
         return TrustPayClient(is_test=self.is_test).create_trustpay_signature(
-                    self.aid, self.type, self.amount, self.currency, self.reference, self.result, self.transaction_id,
-                    self.order_id, tss
-                )
+            self.aid, self.type, self.amount, self.currency, self.reference, self.result, self.transaction_id,
+            self.order_id, tss
+        )

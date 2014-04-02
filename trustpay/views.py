@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.views.generic import View, TemplateView
 
+from helpers import get_result_message
 from models import Notification
-from trustpay.helpers import get_result_message
 
 
 class SuccessReturnView(TemplateView):

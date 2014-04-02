@@ -112,7 +112,7 @@ Put TrustPay form to your template::
 
 Handle return views
 '''''''''''''''''''
-By default, SuccessReturnView, ErrorReturnView, CancelReturnView simply print request data and error message if any.
+By default, ``SuccessReturnView``, ``ErrorReturnView``, ``CancelReturnView`` simply print request data and error message if any.
 You should override templates ``trustpay/success_return.html``, ``trustpay/error_return.html`` and
 ``trustpay/cancel_return.html`` or define your own return views. If you decide to use your own return views,
 don't forget to set ``TRUSTPAY_SUCCESS_RETURN_URL``, ``TRUSTPAY_ERROR_RETURN_URL`` and ``TRUSTPAY_CANCEL_RETURN_URL``
@@ -121,7 +121,7 @@ settings.
 
 Handle notification view
 ''''''''''''''''''''''''
-trustpay.views.NotificationView stores every notification from TrustPay service to database.
+``trustpay.views.NotificationView`` stores every notification from TrustPay service to database.
 You shouldn't have set BasicAuth or any other authentication on this view (``reverse('trustpay_notification')``),
 because TrustPay won't be able to access it.
 

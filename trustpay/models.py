@@ -1,5 +1,9 @@
 from django.core.validators import EMPTY_VALUES
 from django.db import models
+try:
+    from django.db.models import GenericIPAddressField
+except ImportError: # Django < 1.4 compatibility
+    from django.db.models import IPAddressField as GenericIPAddressField
 from django.utils.translation import ugettext_lazy as _
 
 import trustpay
@@ -15,7 +19,7 @@ class Notification(models.Model):
         (TYPE_DBIT, _('Debit')),
     )
 
-    ip_address = models.IPAddressField(verbose_name=_(u'IP address'),
+    ip_address = GenericIPAddressField(verbose_name=_(u'IP address'),
         blank=True, null=True, default=None)
     params_get = models.TextField(verbose_name=_(u'GET params'))
     params_post = models.TextField(verbose_name=_(u'POST params'))

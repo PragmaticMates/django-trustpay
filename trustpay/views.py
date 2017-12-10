@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.http import HttpResponse
 from django.views.generic import View, TemplateView
 
-from helpers import get_result_message
-from models import Notification
+from .helpers import get_result_message
+from .models import Notification
 
 
 class SuccessReturnView(TemplateView):

@@ -61,16 +61,16 @@ TRUSTPAY_CLIENT_REDIRECT_URL_LIVE
     TrustPay CLIENT REDIRECT URL for LIVE environment. Default: ``'https://ib.trustpay.eu/mapi/pay.aspx'``
 
 TRUSTPAY_SUCCESS_RETURN_URL
-    Success return URL. Default: ``u'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_success_return'))``
+    Success return URL. Default: ``'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_success_return'))``
 
 TRUSTPAY_ERROR_RETURN_URL
-    Error return URL. Default: ``u'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_error_return'))``
+    Error return URL. Default: ``'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_error_return'))``
 
 TRUSTPAY_CANCEL_RETURN_URL
-    Cancel return URL. Default: ``u'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_cancel_return'))``
+    Cancel return URL. Default: ``'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_cancel_return'))``
 
 TRUSTPAY_NOTIFICATION_URL
-    Notification URL. Default: ``u'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_notification'))``
+    Notification URL. Default: ``'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_notification'))``
 
 TRUSTPAY_NOTIFICATION_EMAIL
     Notification email. Default: ``ADMINS[0][0] or None``
@@ -88,13 +88,13 @@ In your checkout view prepare TrustPay payment data::
         # required
         'amount': 123.45,
         'currency': trustpay.CURRENCY_EUR,
-        'reference': u'ORDER-123',  # Don't put # sign in reference. It will be returned back as GET parameter.
+        'reference': 'ORDER-123',  # Don't put # sign in reference. It will be returned back as GET parameter.
 
         # not required
         'language': get_language_code(request),
         'country': trustpay.COUNTRY_SLOVAK_REPUBLIC,
-        'description': u'This is Trustpay test payment',
-        'customer_email': u'example@example.net'
+        'description': 'This is Trustpay test payment',
+        'customer_email': 'example@example.net'
     }
 
 

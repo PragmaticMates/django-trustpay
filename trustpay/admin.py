@@ -1,7 +1,10 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from models import Notification
+from .models import Notification
 
 
 class NotificationAdmin(admin.ModelAdmin):
@@ -16,12 +19,12 @@ class NotificationAdmin(admin.ModelAdmin):
         return False
 
     def amount_and_currency(self, obj):
-        return u'%s %s' % (obj.amount, obj.currency)
+        return '%s %s' % (obj.amount, obj.currency)
 
     def is_live(self, obj):
         return not obj.is_test
     is_live.boolean = True
-    is_live.short_description = _(u'Live')
+    is_live.short_description = _('Live')
+
 
 admin.site.register(Notification, NotificationAdmin)
-

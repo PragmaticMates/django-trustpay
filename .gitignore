@@ -1,4 +1,5 @@
 *.py[co]
+__pycache__
 .DS_Store
 .sass-cache
 
@@ -30,3 +31,7 @@ pip-log.txt
 
 #IDE
 .idea
+.ropeproject
+
+# Database
+db.sqlite3

@@ -1,5 +1,10 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.utils.translation import ugettext_lazy as _
 
+
+default_app_config = 'trustpay.apps.AppConfig'
 
 # returned via redirect, email notification, http notification
 RESULT_SUCCESS = '0'
@@ -25,23 +30,23 @@ RESULT_GENERAL_ERROR = '1100'
 RESULT_UNSUPPORTED_CURRENCY_CONVERSION = '1101'
 
 RESULTS = (
-    (RESULT_SUCCESS, _(u'Success')),
-    (RESULT_PENDING, _(u'Pending')),
-    (RESULT_ANNOUNCED, _(u'Announced')),
-    (RESULT_AUTHORIZED, _(u'Authorized')),
-    (RESULT_PROCESSING, _(u'Processing')),
-    (RESULT_AUTHORIZED_ONLY, _(u'Authorized only')),
-    (RESULT_INVALID_REQUEST, _(u'Invalid request')),
-    (RESULT_UNKNOWN_ACCOUNT, _(u'Unknown account')),
-    (RESULT_MERCHANT_ACCOUNT_DISABLED, _(u'Merchant account disabled')),
-    (RESULT_INVALID_SIGN, _(u'Invalid sign')),
-    (RESULT_USER_CANCEL, _(u'User cancel')),
-    (RESULT_INVALID_AUTHENTICATION, _(u'Invalid authentication')),
-    (RESULT_DISPOSABLE_BALANCE, _(u'Disposable balance')),
-    (RESULT_SERVICE_NOT_ALLOWED, _(u'Service not allowed')),
-    (RESULT_PAYSAFECARD_TIMEOUT, _(u'PaySafeCard timeout')),
-    (RESULT_GENERAL_ERROR, _(u'General Error')),
-    (RESULT_UNSUPPORTED_CURRENCY_CONVERSION, _(u'Unsupported currency conversion'))
+    (RESULT_SUCCESS, _('Success')),
+    (RESULT_PENDING, _('Pending')),
+    (RESULT_ANNOUNCED, _('Announced')),
+    (RESULT_AUTHORIZED, _('Authorized')),
+    (RESULT_PROCESSING, _('Processing')),
+    (RESULT_AUTHORIZED_ONLY, _('Authorized only')),
+    (RESULT_INVALID_REQUEST, _('Invalid request')),
+    (RESULT_UNKNOWN_ACCOUNT, _('Unknown account')),
+    (RESULT_MERCHANT_ACCOUNT_DISABLED, _('Merchant account disabled')),
+    (RESULT_INVALID_SIGN, _('Invalid sign')),
+    (RESULT_USER_CANCEL, _('User cancel')),
+    (RESULT_INVALID_AUTHENTICATION, _('Invalid authentication')),
+    (RESULT_DISPOSABLE_BALANCE, _('Disposable balance')),
+    (RESULT_SERVICE_NOT_ALLOWED, _('Service not allowed')),
+    (RESULT_PAYSAFECARD_TIMEOUT, _('PaySafeCard timeout')),
+    (RESULT_GENERAL_ERROR, _('General Error')),
+    (RESULT_UNSUPPORTED_CURRENCY_CONVERSION, _('Unsupported currency conversion'))
 )
 
 # Supported currencies
@@ -79,4 +84,4 @@ COUNTRY_TURKEY = 'TR'
 # Supported languages
 # The following is a list of languages (according to ISO 639-1) supported by TrustPay.
 SUPPORTED_LANGUAGES = ['bg', 'bs', 'cs', 'de', 'en', 'es', 'et', 'hr', 'hu', 'it',
-                       'lt', 'lv', 'pl', 'ro', 'ru', 'sk', 'sl', 'sr', 'uk']
+                       'lt', 'lv', 'pl', 'ro', 'r', 'sk', 'sl', 'sr', 'uk']

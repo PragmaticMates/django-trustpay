@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.conf import settings
 from django.views.generic import FormView
 
@@ -13,15 +16,15 @@ class HomeView(FormView):
         self.trustpay_payment_data = {
             'amount': 123.45,
             'currency': trustpay.CURRENCY_EUR,
-            'reference': u'ORDER-123',  # Don't put # sign in reference
+            'reference': 'ORDER-123',  # Don't put # sign in reference
             'language': get_language_code(request),
             'country': trustpay.COUNTRY_SLOVAK_REPUBLIC,
-            'description': u'This is Trustpay test payment',
-            'customer_email': u'example@example.net'
+            'description': 'This is Trustpay test payment',
+            'customer_email': 'example@example.net'
         }
         return super(HomeView, self).dispatch(request, *args, **kwargs)
 
-    def get_form(self, form_class):
+    def get_form(self):
         return TrustPayClient(is_test=settings.DEBUG).get_form(**self.trustpay_payment_data)
 
     def get_context_data(self, **kwargs):

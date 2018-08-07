@@ -19,16 +19,16 @@ TRUSTPAY_SECRET_KEY_TEST = getattr(settings, 'TRUSTPAY_SECRET_KEY_TEST', None)
 TRUSTPAY_SECRET_KEY_LIVE = getattr(settings, 'TRUSTPAY_SECRET_KEY_LIVE', None)
 
 # TrustPay PAYMENT SERVICE URL for TEST environment
-TRUSTPAY_PAYMENT_SERVICE_URL_TEST = getattr(settings, 'TRUSTPAY_PAYMENT_SERVICE_URL_TEST', 'https://ib.test.trustpay.eu/mapi/paymentservice.aspx')
+TRUSTPAY_PAYMENT_SERVICE_URL_TEST = getattr(settings, 'TRUSTPAY_PAYMENT_SERVICE_URL_TEST', 'https://playground.trustpay.eu/mapi/pay.aspx')
 
 # TrustPay PAYMENT SERVICE URL for LIVE environment
-TRUSTPAY_PAYMENT_SERVICE_URL_LIVE = getattr(settings, 'TRUSTPAY_PAYMENT_SERVICE_URL_LIVE', 'https://ib.trustpay.eu/mapi/paymentservice.aspx')
+TRUSTPAY_PAYMENT_SERVICE_URL_LIVE = getattr(settings, 'TRUSTPAY_PAYMENT_SERVICE_URL_LIVE', 'https://ib.trustpay.eu/mapi/pay.aspx')
 
-# TrustPay CLIENT REDIRECT URL for TEST environment
-TRUSTPAY_CLIENT_REDIRECT_URL_TEST = getattr(settings, 'TRUSTPAY_CLIENT_REDIRECT_URL_TEST', 'https://ib.test.trustpay.eu/mapi/pay.aspx')
+# TrustPay CARD PAYMENTS URL for TEST environment
+TRUSTPAY_CARD_PAYMENTS_URL_TEST = getattr(settings, 'TRUSTPAY_CARD_PAYMENTS_URL_TEST', 'https://playground.trustpay.eu/mapi5/Card/Pay')
 
-# TrustPay CLIENT REDIRECT URL for LIVE environment
-TRUSTPAY_CLIENT_REDIRECT_URL_LIVE = getattr(settings, 'TRUSTPAY_CLIENT_REDIRECT_URL_LIVE', 'https://ib.trustpay.eu/mapi/pay.aspx')
+# TrustPay CARD PAYMENTS URL for LIVE environment
+TRUSTPAY_CARD_PAYMENTS_URL_LIVE = getattr(settings, 'TRUSTPAY_CARD_PAYMENTS_URL_LIVE', 'https://ib.trustpay.eu/mapi5/Card/Pay')
 
 try:
     # Success return URL

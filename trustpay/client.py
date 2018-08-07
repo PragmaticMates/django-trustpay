@@ -12,11 +12,9 @@ class TrustPayClient(object):
         self.is_test = is_test
         self.AID = settings.TRUSTPAY_AID_TEST if is_test else settings.TRUSTPAY_AID_LIVE
         self.PAYMENT_SERVICE_URL = settings.TRUSTPAY_PAYMENT_SERVICE_URL_TEST if is_test else settings.TRUSTPAY_PAYMENT_SERVICE_URL_LIVE
-        self.CLIENT_REDIRECT_URL = settings.TRUSTPAY_CLIENT_REDIRECT_URL_TEST if is_test else settings.TRUSTPAY_CLIENT_REDIRECT_URL_LIVE
+        self.CARD_PAYMENTS_URL = settings.TRUSTPAY_CARD_PAYMENTS_URL_TEST if is_test else settings.TRUSTPAY_CARD_PAYMENTS_URL_LIVE
         self.AID = settings.TRUSTPAY_AID_TEST if is_test else settings.TRUSTPAY_AID_LIVE
         self.SECRET_KEY = settings.TRUSTPAY_SECRET_KEY_TEST if is_test else settings.TRUSTPAY_SECRET_KEY_LIVE
-        self.ACTION_URL = settings.TRUSTPAY_CLIENT_REDIRECT_URL_TEST if is_test else settings.TRUSTPAY_CLIENT_REDIRECT_URL_LIVE
-
 
     def create_merchant_signature(self, aid, amount, currency, reference):
         # A message is created as concatenation of parameter values in this specified order:
@@ -62,7 +60,7 @@ class TrustPayClient(object):
         except TypeError:
             return None
 
-    def get_form(self, amount, currency, reference, language=None, country=None, description=None, customer_email=None):
+    def get_form(self, amount, currency, reference, language=None, country=None, description=None, customer_email=None, card_payment=False):
         import settings
         initial = {
             'AID': self.AID,
@@ -81,5 +79,5 @@ class TrustPayClient(object):
             'EMA': customer_email
         }
         form = TrustPayForm(initial=initial)
-        form.action_url = self.ACTION_URL
+        form.action_url = self.CARD_PAYMENTS_URL if card_payment else self.PAYMENT_SERVICE_URL
         return form

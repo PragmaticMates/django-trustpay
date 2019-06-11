@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='django-trustpay',
-    version='0.3.0',
+    version='0.4.0',
     description='Django app for Trustpay payment gateway API.',
     long_description=open('README.rst').read(),
     author='Pragmatic Mates',

@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.db import models
 from django.db.models.query import QuerySet
 
@@ -5,16 +8,16 @@ from django.db.models.query import QuerySet
 class NotificationQuerySet(QuerySet):
     def create_from_request(self, request):
         #{
-        #    u'TYP': [u'CRDT'],
-        #    u'CUR': [u'EUR'],
-        #    u'RES': [u'0'],
-        #    u'OID': [u'0'],
-        #    u'AMT': [u'12.40'],
-        #    u'SIG': [u'9FC13BFFD2AD2CCF2AEEAE4477342E57180860913A93E5CAEBB175C987E43D53'],
-        #    u'TID': [u'32209'],
-        #    u'AID': [u'2107900972'],
-        #    u'REF': [u'Test'],
-        #    u'TSS': [u'N']
+        #    'TYP': ['CRDT'],
+        #    'CUR': ['EUR'],
+        #    'RES': ['0'],
+        #    'OID': ['0'],
+        #    'AMT': ['12.40'],
+        #    'SIG': ['9FC13BFFD2AD2CCF2AEEAE4477342E57180860913A93E5CAEBB175C987E43D53'],
+        #    'TID': ['32209'],
+        #    'AID': ['2107900972'],
+        #    'REF': ['Test'],
+        #    'TSS': ['N']
         #}
 
         # IP address

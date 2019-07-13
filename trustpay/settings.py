@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 
 
 # Site debug
@@ -32,16 +35,16 @@ TRUSTPAY_CARD_PAYMENTS_URL_LIVE = getattr(settings, 'TRUSTPAY_CARD_PAYMENTS_URL_
 
 try:
     # Success return URL
-    TRUSTPAY_SUCCESS_RETURN_URL = getattr(settings, 'TRUSTPAY_SUCCESS_RETURN_URL', u'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_success_return')))
+    TRUSTPAY_SUCCESS_RETURN_URL = getattr(settings, 'TRUSTPAY_SUCCESS_RETURN_URL', '%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_success_return')))
 
     # Error return URL
-    TRUSTPAY_ERROR_RETURN_URL = getattr(settings, 'TRUSTPAY_ERROR_RETURN_URL', u'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_error_return')))
+    TRUSTPAY_ERROR_RETURN_URL = getattr(settings, 'TRUSTPAY_ERROR_RETURN_URL', '%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_error_return')))
 
     # Cancel return URL
-    TRUSTPAY_CANCEL_RETURN_URL = getattr(settings, 'TRUSTPAY_CANCEL_RETURN_URL', u'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_cancel_return')))
+    TRUSTPAY_CANCEL_RETURN_URL = getattr(settings, 'TRUSTPAY_CANCEL_RETURN_URL', '%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_cancel_return')))
 
     # Notification URL
-    TRUSTPAY_NOTIFICATION_URL = getattr(settings, 'TRUSTPAY_NOTIFICATION_URL', u'%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_notification')))
+    TRUSTPAY_NOTIFICATION_URL = getattr(settings, 'TRUSTPAY_NOTIFICATION_URL', '%s%s' % (settings.HOST_URL, reverse_lazy('trustpay_notification')))
 except AttributeError as e:
     raise ImproperlyConfigured(e)
 

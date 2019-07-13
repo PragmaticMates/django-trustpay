@@ -19,9 +19,8 @@ setup(
     install_requires=('django',),
     classifiers=[
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.5',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',

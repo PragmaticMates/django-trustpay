@@ -1,14 +1,19 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 import hashlib
 import hmac
 
-from forms import TrustPayForm
+from django.utils.encoding import force_text
+
+from .forms import TrustPayForm
 
 
 class TrustPayClient(object):
     is_test = False
 
     def __init__(self, is_test):
-        import settings
+        from . import settings
         self.is_test = is_test
         self.AID = settings.TRUSTPAY_AID_TEST if is_test else settings.TRUSTPAY_AID_LIVE
         self.PAYMENT_SERVICE_URL = settings.TRUSTPAY_PAYMENT_SERVICE_URL_TEST if is_test else settings.TRUSTPAY_PAYMENT_SERVICE_URL_LIVE
@@ -20,25 +25,25 @@ class TrustPayClient(object):
         # A message is created as concatenation of parameter values in this specified order:
         # Merchant redirect to TrustPay: AID, AMT, CUR, and REF
 
-        message = unicode(aid)
-        message += unicode(amount)
-        message += unicode(currency)
-        message += unicode(reference)
+        message = force_text(aid)
+        message += force_text(amount)
+        message += force_text(currency)
+        message += force_text(reference)
         return self.sign(message)
 
     def create_trustpay_signature(self, aid, typ, amt, cur, ref, res, tid, oid, tss):
         # A message is created as concatenation of parameter values in this specified order:
         # TrustPay notification to Merchant: AID, TYP, AMT, CUR, REF, RES, TID, OID and TSS
 
-        message = unicode(aid)
-        message += unicode(typ)
-        message += unicode(amt)
-        message += unicode(cur)
-        message += unicode(ref)
-        message += unicode(res)
-        message += unicode(tid)
-        message += unicode(oid)
-        message += unicode(tss)
+        message = force_text(aid)
+        message += force_text(typ)
+        message += force_text(amt)
+        message += force_text(cur)
+        message += force_text(ref)
+        message += force_text(res)
+        message += force_text(tid)
+        message += force_text(oid)
+        message += force_text(tss)
 
         return self.sign(message)
 
@@ -47,10 +52,10 @@ class TrustPayClient(object):
 
     def sign(self, message):
         try:
-            key = self.SECRET_KEY
+            key = self.SECRET_KEY.encode('utf-8')
 
             # HMAC-SHA-256 code (32 bytes) is generated using a key obtained from TrustPay
-            code = hmac.new(key, message, hashlib.sha256)
+            code = hmac.new(key, message.encode('utf-8'), hashlib.sha256)
 
             # Then the code is converted to a string to be a hexadecimal representation of the code
             hex = code.hexdigest()
@@ -61,7 +66,7 @@ class TrustPayClient(object):
             return None
 
     def get_form(self, amount, currency, reference, language=None, country=None, description=None, customer_email=None, card_payment=False):
-        import settings
+        from . import settings
         initial = {
             'AID': self.AID,
             'AMT': amount,

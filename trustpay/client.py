@@ -52,10 +52,10 @@ class TrustPayClient(object):
 
     def sign(self, message):
         try:
-            key = self.SECRET_KEY
+            key = self.SECRET_KEY.encode('utf-8')
 
             # HMAC-SHA-256 code (32 bytes) is generated using a key obtained from TrustPay
-            code = hmac.new(key, message, hashlib.sha256)
+            code = hmac.new(key, message.encode('utf-8'), hashlib.sha256)
 
             # Then the code is converted to a string to be a hexadecimal representation of the code
             hex = code.hexdigest()
